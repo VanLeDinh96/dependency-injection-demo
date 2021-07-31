@@ -17,8 +17,8 @@ import { TabPanelComponent } from './tab-panel.component';
       </div>
     </div>
 
-    <div class="tab-body">
-      <ng-container *ngTemplateOutlet="tabPanelList(activeIndex).panelBody">
+    <div class="tab-body" *ngIf="tabPanelList.length; else noTabs">
+      <ng-container *ngTemplateOutlet="tabPanelList[activeIndex].panelBody">
       </ng-container>
     </div>
 
@@ -35,6 +35,7 @@ export class TabGroupComponent {
 
   addTab(tab: TabPanelComponent) {
     this.tabPanelList = [...this.tabPanelList, tab];
+    console.log('tabPanelList = ', this.tabPanelList);
   }
 
   removeTab(tab: TabPanelComponent) {
