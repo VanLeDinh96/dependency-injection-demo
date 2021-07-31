@@ -27,23 +27,25 @@ import { TabPanelComponent } from './tab-panel.component';
       No more tabs.
     </ng-template>
   `,
-  styles: [`
-    .tab-headers{
-      display:flex;
-      padding-bottom:0.5rem;
-      border-bottom: 1px solid #000;
-      margin-bottom: 0.5rem;
-    }
+  styles: [
+    `
+      .tab-headers {
+        display: flex;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #000;
+        margin-bottom: 0.5rem;
+      }
 
-    .tab-header-item{
-      margin-right:0.5rem;
-      padding: 5px 10px;
-    }
+      .tab-header-item {
+        margin-right: 0.5rem;
+        padding: 5px 10px;
+      }
 
-    .tab-header-item.active{
-      border: 1px solid red;
-    }
-  `]
+      .tab-header-item.active {
+        border: 1px solid red;
+      }
+    `
+  ]
 })
 export class TabGroupComponent {
   tabPanelList: TabPanelComponent[] = [];
