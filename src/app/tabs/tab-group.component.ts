@@ -8,6 +8,7 @@ import { TabPanelComponent } from './tab-panel.component';
       <div
         class="tab-header-item"
         *ngFor="let tab of tabPanelList; let idx = index"
+        [class.active]="idx === activeIndex"
         (click)="activeIndexChange.emit(idx)"
       >
         {{ tab.title }}
@@ -26,7 +27,23 @@ import { TabPanelComponent } from './tab-panel.component';
       No more tabs.
     </ng-template>
   `,
-  styles: []
+  styles: [`
+    .tab-headers{
+      display:flex;
+      padding-bottom:0.5rem;
+      border-bottom: 1px solid #000;
+      margin-bottom: 0.5rem;
+    }
+
+    .tab-header-item{
+      margin-right:0.5rem;
+      padding: 5px 10px;
+    }
+
+    .tab-header-item.active{
+      border: 1px solid red;
+    }
+  `]
 })
 export class TabGroupComponent {
   tabPanelList: TabPanelComponent[] = [];
@@ -35,7 +52,6 @@ export class TabGroupComponent {
 
   addTab(tab: TabPanelComponent) {
     this.tabPanelList = [...this.tabPanelList, tab];
-    console.log('tabPanelList = ', this.tabPanelList);
   }
 
   removeTab(tab: TabPanelComponent) {
